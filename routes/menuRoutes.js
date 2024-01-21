@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
     try {
         const data = req.body
         const newMenuItem = new MenuItem(data)
-        const response = await MenuItem.save()
+        const response = await newMenuItem.save()
         console.log('Data saved successfully')
         res.status(200).json(response)
     } catch (err) {

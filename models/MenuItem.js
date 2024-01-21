@@ -10,7 +10,7 @@ const menuItemSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    work: {
+    taste: {
         type: String,
         enum: ['sweet', 'spicy', 'sour'],
         required: true,

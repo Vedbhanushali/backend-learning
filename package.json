@@ -9,6 +9,7 @@
   "author": "Ved Bhanushali",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.3.2",
     "express": "^4.18.2",
     "lodash": "^4.17.21",
     "mongoose": "^8.1.0",
