@@ -46,7 +46,7 @@ router.get('/:taste', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const menuId = req.params.id;
-        const updatedMenuData = req.body()
+        const updatedMenuData = req.body
         const response = await MenuItem.findByIdAndUpdate(menuId, updatedMenuData, {
             new: true, //return the updated document
             runValidators: true, //run mongoose validation
@@ -63,7 +63,7 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-router.delete(':/id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const menuId = req.params.id;
 

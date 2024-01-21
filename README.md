@@ -4,7 +4,7 @@
 
 <https://hotels-pyi8.onrender.com/person>  
 filters on person based on work type : ['chef', 'waiter', 'manager']  
-<https://hotels-pyi8.onrender.com/person/worker>  
+<https://hotels-pyi8.onrender.com/person/waiter>  
 <https://hotels-pyi8.onrender.com/person/chef>  
 <https://hotels-pyi8.onrender.com/person/manager>  
 

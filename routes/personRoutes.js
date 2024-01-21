@@ -50,7 +50,7 @@ router.get('/:workType', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const personId = req.params.id;
-        const updatedPesonData = req.body()
+        const updatedPesonData = req.body
         const response = await Person.findByIdAndUpdate(personId, updatedPesonData, {
             new: true, //return the updated document
             runValidators: true, //run mongoose validation
@@ -67,7 +67,7 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-router.delete(':/id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const personId = req.params.id;
 
