@@ -2,23 +2,23 @@
 
 ## GET - API
 
-<https://hotels-pyi8.onrender.com/person>  
+<https://hotels-zboe.onrender.com/person>  
 filters on person based on work type : ['chef', 'waiter', 'manager']  
-<https://hotels-pyi8.onrender.com/person/waiter>  
-<https://hotels-pyi8.onrender.com/person/chef>  
-<https://hotels-pyi8.onrender.com/person/manager>  
+<https://hotels-zboe.onrender.com/person/waiter>  
+<https://hotels-zboe.onrender.com/person/chef>  
+<https://hotels-zboe.onrender.com/person/manager>  
 
-<https://hotels-pyi8.onrender.com/menu>  
+<https://hotels-zboe.onrender.com/menu>  
 filters on menu based on taste : ['sweet', 'spicy', 'sour']  
-<https://hotels-pyi8.onrender.com/menu/sweet>  
-<https://hotels-pyi8.onrender.com/menu/spicy>  
-<https://hotels-pyi8.onrender.com/menu/sour>
+<https://hotels-zboe.onrender.com/menu/sweet>  
+<https://hotels-zboe.onrender.com/menu/spicy>  
+<https://hotels-zboe.onrender.com/menu/sour>
 
 ## POST - API
 
 ### person - creation  
 
-<https://hotels-pyi8.onrender.com/person>  
+<https://hotels-zboe.onrender.com/person>  
 payload in body JSON format  
 **NOTE work type can only be ['chef', 'waiter', 'manager']**
 
@@ -36,7 +36,7 @@ payload in body JSON format
 
 ### MenuItem creattion
 
-<https://hotels-pyi8.onrender.com/menu>  
+<https://hotels-zboe.onrender.com/menu>  
 payload in body JSON format  
 **NOTE taste type can only be ['sweet', 'spicy', 'sour']**
 
@@ -56,24 +56,24 @@ payload in body JSON format
 
 ### Person
 
-API - <https://hotels-pyi8.onrender.com/person/{person_id}>  
+API - <https://hotels-zboe.onrender.com/person/{person_id}>  
 example -
-<https://hotels-pyi8.onrender.com/person/65ad00edb6540b9ced1df730>  
+<https://hotels-zboe.onrender.com/person/65ad00edb6540b9ced1df730>  
 and with payload similar as creation
 
 ### Menu Item
 
-API - <https://hotels-pyi8.onrender.com/menu/{menu_item_id}>  
+API - <https://hotels-zboe.onrender.com/menu/{menu_item_id}>  
 and with payload similar as creation
 
 ## Delete API
 
 ### Delete Person
 
-API - <https://hotels-pyi8.onrender.com/person/{person_id}>  
+API - <https://hotels-zboe.onrender.com/person/{person_id}>  
 example -
-<https://hotels-pyi8.onrender.com/person/65ad00edb6540b9ced1df730>  
+<https://hotels-zboe.onrender.com/person/65ad00edb6540b9ced1df730>  
 
 ### Delete Menu Item
 
-API - <https://hotels-pyi8.onrender.com/menu/{menu_item_id}>  
+API - <https://hotels-zboe.onrender.com/menu/{menu_item_id}>  
