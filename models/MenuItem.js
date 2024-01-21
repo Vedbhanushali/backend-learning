@@ -27,7 +27,7 @@ const menuItemSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    salary: {
+    cost: {
         type: Number,
         required: true,
     }

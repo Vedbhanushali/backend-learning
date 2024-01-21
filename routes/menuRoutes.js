@@ -38,7 +38,7 @@ router.get('/:taste', async (req, res) => {
             res.status(404).json({ error: 'Invalid work type' })
         }
     } catch (error) {
-        console.log("Error : ", err)
+        console.log("Error : ", error)
         res.status(500).json({ error: 'Internal server error' })
     }
 })
@@ -58,7 +58,7 @@ router.put('/:id', async (req, res) => {
         console.log('data updated')
         res.status(200).json(response)
     } catch (error) {
-        console.log("Error : ", err)
+        console.log("Error : ", error)
         res.status(500).json({ error: 'Internal server error' })
     }
 })
@@ -75,7 +75,7 @@ router.delete(':/id', async (req, res) => {
         console.log('data deleted')
         res.status(200).json({ message: 'MenuItem deleted successfully' })
     } catch (error) {
-        console.log("Error : ", err)
+        console.log("Error : ", error)
         res.status(500).json({ error: 'Internal server error' })
     }
 })
