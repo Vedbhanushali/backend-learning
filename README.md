@@ -1,5 +1,7 @@
 # Hotels Managment Backend
 
+***All menu routes now requires authentication need to pass username and password in url params.***
+
 ## GET - API
 
 <https://hotels-zboe.onrender.com/person>  
@@ -23,18 +25,20 @@ payload in body JSON format
 **NOTE work type can only be ['chef', 'waiter', 'manager']**
 
 ```js
-{
-  "name": "Alice",
-  "age": 28,
-  "work": "chef",
-  "mobile": "234-234-2345",
-  "email": "test@g2.com",
-  "address":"CA",
-  "salary": 60000
-}
+    {
+        "name": "Alice",
+        "age": 28,
+        "work": "chef",
+        "mobile": "234-234-2345",
+        "email": "test@g2212.com",
+        "address": "CA",
+        "salary": 60000,
+        "username" : "testtest",
+        "password" : "pass"
+    }
 ```
 
-### MenuItem creattion
+### MenuItem creation
 
 <https://hotels-zboe.onrender.com/menu>  
 payload in body JSON format  
