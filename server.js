@@ -17,10 +17,12 @@ app.use(passport.initialize())
 
 const localAuthMiddleware = passport.authenticate('local', { session: false })
 
-app.get('/', localAuthMiddleware, function (req, res) {
+// app.get('/', localAuthMiddleware, function (req, res) {
+//     res.send('welcome to Cosmos hotel')
+// })
+app.get('/', function (req, res) {
     res.send('welcome to Cosmos hotel')
 })
-
 const personRoutes = require('./routes/personRoutes')
 const menuRoutes = require('./routes/menuRoutes')
 
