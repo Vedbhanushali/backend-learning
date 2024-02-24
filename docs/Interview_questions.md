@@ -52,3 +52,7 @@ after main function is executed callback function is called later , so this func
 ## what is use of nodemon ?
 
 nodemon keep monitoring file changes and if any redeploy/restart the server file.
+
+## Session Cookie and Tokens
+
+<https://www.youtube.com/watch?v=YhIrMZa4zgQ&list=PLzjZaW71kMwScTRKzoasdyB1sX-a9EbFp&index=11&t=118s>
