@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
-//define the person schema
 const personSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    username: {
+    email: {
         type: String,
         required: true,
+        unique: true,
     },
     password: {
         type: String,
@@ -25,12 +25,6 @@ const personSchema = new mongoose.Schema({
     },
     mobile: {
         type: String,
-        required: true,
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true,
     },
     address: {
         type: String
@@ -41,9 +35,12 @@ const personSchema = new mongoose.Schema({
     }
 })
 
+//pre() method in Mongoose Schema API is used to add a pre-hook to the mongoose Schema methods
 personSchema.pre('save', async function (next) {
+    //before save action do this
     const person = this
     //hash the password only if it has been modified (or it is new)
+    //isModified function in Mongoose is used to check if a field in a document has been modified since it was last saved to the database.
     if (!person.isModified('password')) return next()
     try {
         /* hash password generation */
@@ -80,6 +77,5 @@ personSchema.methods.comparePassword = async function (candidatePassword) {
     }
 }
 
-//create person model
 const Person = mongoose.model('Person', personSchema)
 module.exports = Person

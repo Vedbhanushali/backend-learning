@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-//define the person schema
+//MENU items schema
 const menuItemSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -27,12 +27,8 @@ const menuItemSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    cost: {
-        type: Number,
-        required: true,
-    }
 })
 
-//create person model
+//Menu model
 const MenuItem = mongoose.model('MenuItem', menuItemSchema)
 module.exports = MenuItem
