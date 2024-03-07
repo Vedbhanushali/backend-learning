@@ -14,20 +14,23 @@ const logRequest = (req, res, next) => {
 app.use(logRequest)
 
 app.use(passport.initialize())
-
 const localAuthMiddleware = passport.authenticate('local', { session: false })
 
-// app.get('/', localAuthMiddleware, function (req, res) {
-//     res.send('welcome to Cosmos hotel')
-// })
 app.get('/', function (req, res) {
-    res.send('welcome to Cosmos hotel')
+    res.send('Welcome of FoodZilla restaurant -- by Ved Bhanushali')
 })
+
+app.get('/verify', localAuthMiddleware, function (req, res) {
+    res.send('Verification successful')
+})
+
 const personRoutes = require('./routes/personRoutes')
 const menuRoutes = require('./routes/menuRoutes')
+const orderRoutes = require('./routes/orderRoutes')
 
 app.use('/person', personRoutes)
-app.use('/menu', localAuthMiddleware, menuRoutes)
+app.use('/menu', menuRoutes)
+app.use('/order', orderRoutes)
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {

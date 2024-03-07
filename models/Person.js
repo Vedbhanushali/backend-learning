@@ -18,7 +18,7 @@ const personSchema = new mongoose.Schema({
     age: {
         type: Number,
     },
-    work: {
+    type: {
         type: String,
         enum: ['chef', 'waiter', 'manager'],
         required: true,

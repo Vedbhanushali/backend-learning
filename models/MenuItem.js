@@ -23,7 +23,7 @@ const menuItemSchema = new mongoose.Schema({
         type: [String],
         default: []
     },
-    num_sales: {
+    num_sales: { //based on orders made
         type: Number,
         default: 0
     },

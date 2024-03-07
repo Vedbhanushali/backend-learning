@@ -16,7 +16,8 @@ router.post('/signup', async (req, res) => {
 
         const payload = {
             id: response.id,
-            username: response.username
+            email: response.email,
+            type: response.work
         }
         const token = generateToken(payload)
         console.log('token is', token)
@@ -31,11 +32,11 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         //extract username and password from request body
-        const { username, password } = req.body
+        const { email, password } = req.body
 
         //find the user by username
         const user = await Person.findOne({
-            username: username
+            email: email
         })
 
         //if user does not exist or password does not match return error
@@ -48,7 +49,8 @@ router.post('/login', async (req, res) => {
         //generate token
         const payload = {
             id: user.id,
-            username: user.username
+            email: user.email,
+            type: user.type
         }
 
         const token = generateToken(payload)
@@ -61,7 +63,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
-//Profile route
+//[JWT] Profile accessible with JWT token route
 router.get('/profile', jwtAuthMiddleware, async (req, res) => {
     try {
         const userData = req.user; //user is coming from jwtAuthMiddleware
@@ -77,7 +79,7 @@ router.get('/profile', jwtAuthMiddleware, async (req, res) => {
     }
 })
 
-//added jwt auth for viewing all people list
+//[JWT] viewing all people list accessible with JWT token
 router.get('/', jwtAuthMiddleware, async (req, res) => {
     try {
         const data = await Person.find()
@@ -89,11 +91,12 @@ router.get('/', jwtAuthMiddleware, async (req, res) => {
     }
 })
 
-router.get('/:workType', async (req, res) => {
+//[JWT] filtering people based on worktype with JWT token
+router.get('/:workType', jwtAuthMiddleware, async (req, res) => {
     try {
         const workType = req.params.workType
         if (workType == 'chef' || workType == 'manager' || workType == 'waiter') {
-            const response = await Person.find({ work: workType })
+            const response = await Person.find({ type: workType })
             console.log('response fetched');
             res.status(200).json(response)
         } else {
@@ -105,9 +108,11 @@ router.get('/:workType', async (req, res) => {
     }
 })
 
-router.put('/:id', async (req, res) => {
+//[JWT] editing personal details with JWT token only
+router.put('/:id', jwtAuthMiddleware, async (req, res) => {
     try {
-        const personId = req.params.id;
+        const userData = req.user;
+        const personId = userData.id;
         const updatedPesonData = req.body
         const response = await Person.findByIdAndUpdate(personId, updatedPesonData, {
             new: true, //return the updated document
@@ -125,10 +130,11 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+//[JWT] deleting self person
+router.delete('/:id', jwtAuthMiddleware, async (req, res) => {
     try {
-        const personId = req.params.id;
-
+        const userData = req.user;
+        const personId = userData.id;
         const response = await Person.findByIdAndDelete(personId)
         if (!response) {
             //when person with id does not exist then response will be null

@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 
+//Decode JWT -> user data payload
 const jwtAuthMiddleware = (req, res, next) => {
     //first checking request header has authorization or not
     const authorization = req.headers.authorization
