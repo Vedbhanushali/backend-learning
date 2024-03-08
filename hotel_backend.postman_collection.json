@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "fd900c63-23ac-4e6e-8f98-5552ae72601f",
+		"name": "hotel_backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32315133"
+	},
+	"item": [
+		{
+			"name": "person",
+			"item": [
+				{
+					"name": "root",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/"
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alice\",\r\n    \"email\": \"test@g2212.com\",\r\n    \"password\" : \"pass\",\r\n    \"age\": 28,\r\n    \"type\": \"chef\",\r\n    \"mobile\": \"234-234-2345\",\r\n    \"address\": \"CA\",\r\n    \"salary\": 60000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/person/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"test@g2212.com\",\r\n    \"password\":\"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/person/login"
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWFiMjA2ODZlYWM2MjZjNzc0YmRlOCIsImVtYWlsIjoidGVzdEBnMjIxMi5jb20iLCJ0eXBlIjoiY2hlZiIsImlhdCI6MTcwOTg3OTg4NSwiZXhwIjoxNzA5OTA5ODg1fQ.pNLki7AnISwc2Ct7Sog76l8vYxQTHgBNk6Ku1bqzUGY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/person/profile"
+					},
+					"response": []
+				},
+				{
+					"name": "person list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWFiMjA2ODZlYWM2MjZjNzc0YmRlOCIsImVtYWlsIjoidGVzdEBnMjIxMi5jb20iLCJ0eXBlIjoiY2hlZiIsImlhdCI6MTcwOTg3OTg4NSwiZXhwIjoxNzA5OTA5ODg1fQ.pNLki7AnISwc2Ct7Sog76l8vYxQTHgBNk6Ku1bqzUGY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/person"
+					},
+					"response": []
+				},
+				{
+					"name": "person filter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWFiMjA2ODZlYWM2MjZjNzc0YmRlOCIsImVtYWlsIjoidGVzdEBnMjIxMi5jb20iLCJ0eXBlIjoiY2hlZiIsImlhdCI6MTcwOTg3OTg4NSwiZXhwIjoxNzA5OTA5ODg1fQ.pNLki7AnISwc2Ct7Sog76l8vYxQTHgBNk6Ku1bqzUGY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/person/chef"
+					},
+					"response": []
+				},
+				{
+					"name": "updating personal details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWFiMjA2ODZlYWM2MjZjNzc0YmRlOCIsImVtYWlsIjoidGVzdEBnMjIxMi5jb20iLCJ0eXBlIjoiY2hlZiIsImlhdCI6MTcwOTg3OTg4NSwiZXhwIjoxNzA5OTA5ODg1fQ.pNLki7AnISwc2Ct7Sog76l8vYxQTHgBNk6Ku1bqzUGY"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"updated from api\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/person"
+					},
+					"response": []
+				},
+				{
+					"name": "delete personal profile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/person"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "menu",
+			"item": [
+				{
+					"name": "menu list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/menu"
+					},
+					"response": []
+				},
+				{
+					"name": "filter taste",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/menu/sour"
+					},
+					"response": []
+				},
+				{
+					"name": "create menu (chef,manager)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWFiMzc0OTZjZjRiN2Q5ZWNlOWE0ZiIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJ0eXBlIjoibWFuYWdlciIsImlhdCI6MTcwOTg4MjIyMCwiZXhwIjoxNzA5OTEyMjIwfQ.zJGqxPDpzBio_fC80wAwc0godgyViLaCUbbenlsByrU"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"lassi\",\r\n    \"price\":130,\r\n    \"taste\":\"sweet\",\r\n    \"is_drink\":false,\r\n    \"ingredients\":[\"curd\",\"syrp\"],\r\n    \"num_sales\":0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/menu"
+					},
+					"response": []
+				},
+				{
+					"name": "update menu details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWFiMzc0OTZjZjRiN2Q5ZWNlOWE0ZiIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJ0eXBlIjoibWFuYWdlciIsImlhdCI6MTcwOTg4MjIyMCwiZXhwIjoxNzA5OTEyMjIwfQ.zJGqxPDpzBio_fC80wAwc0godgyViLaCUbbenlsByrU"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"modified\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/menu/65eabb7c753f60b592f9afb7"
+					},
+					"response": []
+				},
+				{
+					"name": "delete menu item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWFiMzc0OTZjZjRiN2Q5ZWNlOWE0ZiIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJ0eXBlIjoibWFuYWdlciIsImlhdCI6MTcwOTg4MjIyMCwiZXhwIjoxNzA5OTEyMjIwfQ.zJGqxPDpzBio_fC80wAwc0godgyViLaCUbbenlsByrU"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/menu/65eabb7c753f60b592f9afb7"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "order list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/order"
+					},
+					"response": []
+				},
+				{
+					"name": "filter status of order (delivered / cooking)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/order/status/delivered"
+					},
+					"response": []
+				},
+				{
+					"name": "see particular order id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/order/123"
+					},
+					"response": []
+				},
+				{
+					"name": "public create order ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"placed_at\":\"12:57\",\r\n    \"placed_by\":\"65eab35696cf4b7d9ece9a49\",\r\n    \"item\":\"65eabb98753f60b592f9afb9\",\r\n    \"quantity\":\"5\",\r\n    \"status\":\"cooking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/order"
+					},
+					"response": []
+				},
+				{
+					"name": "update order details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWFiMzc0OTZjZjRiN2Q5ZWNlOWE0ZiIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJ0eXBlIjoibWFuYWdlciIsImlhdCI6MTcwOTg4MjIyMCwiZXhwIjoxNzA5OTEyMjIwfQ.zJGqxPDpzBio_fC80wAwc0godgyViLaCUbbenlsByrU"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"delivered\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/order/65eac61b4065af73a6037578"
+					},
+					"response": []
+				},
+				{
+					"name": "delete order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWFiMzc0OTZjZjRiN2Q5ZWNlOWE0ZiIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJ0eXBlIjoibWFuYWdlciIsImlhdCI6MTcwOTg4MjIyMCwiZXhwIjoxNzA5OTEyMjIwfQ.zJGqxPDpzBio_fC80wAwc0godgyViLaCUbbenlsByrU"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/order/65eac61b4065af73a6037578"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

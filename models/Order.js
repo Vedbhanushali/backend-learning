@@ -6,11 +6,11 @@ const orderSchema = new mongoose.Schema({
         required: true
     },
     placed_by: { //person id
-        type: Number,
+        type: String,
         required: true
     },
     item: {
-        type: Number, //menu item id
+        type: String, //menu item id
         required: true,
     },
     quantity: {

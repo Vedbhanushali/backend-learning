@@ -6,10 +6,10 @@ const Person = require('../models/Person')
 router.post('/signup', async (req, res) => {
     try {
         const data = req.body //assuming the request body contains the person data
-
+        console.log(data)
         //create a new person document using mongoose model
         const newPerson = new Person(data)
-
+        console.log(newPerson)
         //save the new person to database
         const response = await newPerson.save()
         console.log('Data saved successfully')
@@ -109,7 +109,7 @@ router.get('/:workType', jwtAuthMiddleware, async (req, res) => {
 })
 
 //[JWT] editing personal details with JWT token only
-router.put('/:id', jwtAuthMiddleware, async (req, res) => {
+router.put('/', jwtAuthMiddleware, async (req, res) => {
     try {
         const userData = req.user;
         const personId = userData.id;
@@ -131,7 +131,7 @@ router.put('/:id', jwtAuthMiddleware, async (req, res) => {
 })
 
 //[JWT] deleting self person
-router.delete('/:id', jwtAuthMiddleware, async (req, res) => {
+router.delete('/', jwtAuthMiddleware, async (req, res) => {
     try {
         const userData = req.user;
         const personId = userData.id;

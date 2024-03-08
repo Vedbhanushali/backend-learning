@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 })
 
 //[public] any body can filter order based on status of their order
-router.get('/:status', async (req, res) => {
+router.get('/status/:status', async (req, res) => {
     try {
         const status = req.params.status
         if (status == 'cooking' || status == 'delivered') {
@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
     try {
         const id = req.params.id
         const response = await Order.find({ id: id })
-        if (!response) {
+        if (!response || response.length == 0) {
             //when order does not exist with id
             return res.status(404).json({ error: 'order not found' })
         }
@@ -56,13 +56,15 @@ router.post('/', async (req, res) => {
         const data = req.body
         const newOrder = new Order(data)
         const menuId = newOrder.item
+        console.log(menuId)
+        const quantity = newOrder.quantity
         const menuUpdateResponse = await MenuItem.findByIdAndUpdate(menuId, {
-            $inc: { num_sales: 1 }
+            $inc: { num_sales: quantity }
         }, {
             new: true, // Return the updated document
             runValidators: true // Run Mongoose validation
         })
-        if (menuUpdateResponse) {
+        if (!menuUpdateResponse) {
             return res.status(404).json({ error: 'Menu not found' });
         }
         const response = await newOrder.save()
