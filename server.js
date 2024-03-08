@@ -3,6 +3,7 @@ const express = require('express')
 const db = require('./db')
 const app = express()
 const passport = require('./auth')
+const localAuthMiddleware = passport.authenticate('local', { session: false })
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
@@ -12,9 +13,7 @@ const logRequest = (req, res, next) => {
     next();
 }
 app.use(logRequest)
-
 app.use(passport.initialize())
-const localAuthMiddleware = passport.authenticate('local', { session: false })
 
 app.get('/', function (req, res) {
     res.send('Welcome of FoodZilla restaurant -- by Ved Bhanushali')

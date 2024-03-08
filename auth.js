@@ -1,23 +1,22 @@
-const passport = require('passport')
-const localStrategy = require('passport-local') //passport local localstrategy is username password based authentication
-const Person = require('./models/Person')
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const Person = require('./models/Person'); // Adjust the path as needed
 
-passport.use(new localStrategy(async (email, password, done) => {
-    //authentication logic here
+passport.use(new LocalStrategy(async (username, password, done) => {
     try {
-        const user = await Person.findOne({ email: email });
-        if (!user) {
-            return done(null, false, { message: 'Incorrect email' }); // is callback function which signal complettion of of authentication process @params (error,user,info)
-        }
-        const isPasswordMatch = await user.comparePassword(password)
-        if (!isPasswordMatch) {
-            return done(null, false, { message: 'Password not matched' });
-        }
-        return done(null, user);
-    } catch (err) {
-        console.log(err)
-        return done(err)
-    }
-}))
+        console.log('Received credentials:', username, password);
+        const user = await Person.findOne({ email: username });
+        if (!user)
+            return done(null, false, { message: 'Incorrect username.' });
 
-module.exports = passport
+        const isPasswordMatch = await user.comparePassword(password);
+        if (isPasswordMatch)
+            return done(null, user);
+        else
+            return done(null, false, { message: 'Incorrect password.' })
+    } catch (error) {
+        return done(error);
+    }
+}));
+
+module.exports = passport;

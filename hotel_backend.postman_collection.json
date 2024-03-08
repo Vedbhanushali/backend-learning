@@ -14,7 +14,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/"
+						"url": "https://hotels-zboe.onrender.com/"
 					},
 					"response": []
 				},
@@ -32,7 +32,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/person/signup"
+						"url": "https://hotels-zboe.onrender.com/person/signup"
 					},
 					"response": []
 				},
@@ -50,7 +50,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/person/login"
+						"url": "https://hotels-zboe.onrender.com/person/login"
 					},
 					"response": []
 				},
@@ -65,7 +65,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/person/profile"
+						"url": "https://hotels-zboe.onrender.com/person/profile"
 					},
 					"response": []
 				},
@@ -80,7 +80,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/person"
+						"url": "https://hotels-zboe.onrender.com/person"
 					},
 					"response": []
 				},
@@ -95,7 +95,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/person/chef"
+						"url": "https://hotels-zboe.onrender.com/person/chef"
 					},
 					"response": []
 				},
@@ -119,7 +119,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/person"
+						"url": "https://hotels-zboe.onrender.com/person"
 					},
 					"response": []
 				},
@@ -128,7 +128,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3000/person"
+						"url": "https://hotels-zboe.onrender.com/person"
 					},
 					"response": []
 				}
@@ -142,7 +142,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/menu"
+						"url": "https://hotels-zboe.onrender.com/menu"
 					},
 					"response": []
 				},
@@ -151,7 +151,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/menu/sour"
+						"url": "https://hotels-zboe.onrender.com/menu/sour"
 					},
 					"response": []
 				},
@@ -175,7 +175,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/menu"
+						"url": "https://hotels-zboe.onrender.com/menu"
 					},
 					"response": []
 				},
@@ -199,7 +199,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/menu/65eabb7c753f60b592f9afb7"
+						"url": "https://hotels-zboe.onrender.com/menu/65eabb7c753f60b592f9afb7"
 					},
 					"response": []
 				},
@@ -214,7 +214,7 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3000/menu/65eabb7c753f60b592f9afb7"
+						"url": "https://hotels-zboe.onrender.com/menu/65eabb7c753f60b592f9afb7"
 					},
 					"response": []
 				}
@@ -228,7 +228,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/order"
+						"url": "https://hotels-zboe.onrender.com/order"
 					},
 					"response": []
 				},
@@ -237,7 +237,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/order/status/delivered"
+						"url": "https://hotels-zboe.onrender.com/order/status/delivered"
 					},
 					"response": []
 				},
@@ -246,7 +246,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/order/123"
+						"url": "https://hotels-zboe.onrender.com/order/123"
 					},
 					"response": []
 				},
@@ -264,7 +264,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/order"
+						"url": "https://hotels-zboe.onrender.com/order"
 					},
 					"response": []
 				},
@@ -288,7 +288,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/order/65eac61b4065af73a6037578"
+						"url": "https://hotels-zboe.onrender.com/order/65eac61b4065af73a6037578"
 					},
 					"response": []
 				},
@@ -303,11 +303,59 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3000/order/65eac61b4065af73a6037578"
+						"url": "https://hotels-zboe.onrender.com/order/65eac61b4065af73a6037578"
 					},
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "user crendential verification",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "test@g.com",
+						"password": "pass"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hotels-zboe.onrender.com/verify?username=test@g.com&password=pass",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"verify"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "test@g.com"
+						},
+						{
+							"key": "password",
+							"value": "pass"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
