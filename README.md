@@ -1,6 +1,7 @@
-# Hotels Managment Backend
+# FoodZilla (restaurant backend)
+Build on (express.js/node.js), mongodb database.
 
-## Start application
+## Steps to start application
 
 ```cmd
 npm i
